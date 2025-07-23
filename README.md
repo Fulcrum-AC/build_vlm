@@ -92,7 +92,7 @@ train_args = TrainingArguments(
       </td>
       <td>1.一个大钱包,里面装满了钱,用一个大锁盖在白色背景上隔离。<br> 2.将金钱和现金放入保险箱,防止被盗或丢失。</td>
     </tr>     
-    <tr>
+    <tr> 
       <td>
         <img src="./eval_images/GCC_train_000000025.jpg">
       </td>
