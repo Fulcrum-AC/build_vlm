@@ -59,10 +59,6 @@ train_args = TrainingArguments(
     )
 ```
 ### 3. 测试效果
-| 图片 | 描述  | 
-| :--- | ---- | 
-| <img width="128" height="128" alt="image" src="https://github.com/user-attachments/assets/e878fc50-b313-418f-a83b-ae684bd1775f" />|     |
-
 
 <table>
   <thead>
@@ -74,43 +70,21 @@ train_args = TrainingArguments(
   <tbody>
     <tr>
       <td>
-        <img src="./dataset/eval_images/城市车水马龙-city-traffic.jpg" alt="city-traffic">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="./eval_images/GCC_train_000000000.jpg" alt="city-traffic">
       </td>
-      <td>图中是一个繁忙的城市街道，一条长长的街道两旁都是高楼大厦。这条街上挤满了汽车、卡车和公共汽车，还有许多其他车辆在路上行驶。在街道上，可以看到许多汽车，有的在高速行驶，而其他的则停在街道一侧。此外还有一辆公交车也停在街道的右侧。街道上可以看到交通灯，表明这是一个繁忙的城市环境。</td>
-      <td>图中是一个繁忙的城市景象，有几辆汽车和一辆卡车行驶在城市街道上。可以看到许多交通信号灯，其中一些位于街道左侧，另一些则在右侧。可以看到有几个人在街上行走，其中一些人站得离街道更近一些，而另一些则距离较远。还有一个停车标志位于画面的左侧，暗示着城市环境。可以看到街道上有两辆汽车，一辆在右边，另一辆在左边，还有一辆在左边。这幅图像捕捉到了都市环境中典型的一天。</td>
+      <td>在大雨和大风中,在城市街道上,有大量汽车和行人。</td>
     </tr>
     <tr>
       <td>
-        <img src="./dataset/eval_images/太空宇航员-Astronaut-Space.jpg" alt="astronaut">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="./eval_images/train-00000-of-00001_image_43_0.jpg">
       </td>
-      <td>图片显示了一个宇航员的宇航员身穿宇航服，坐在一架大型航天飞机上。他们似乎正在进行一次宇航员登机或下机的旅程。在宇航员的身后，有一个火箭发射架，可能是用来支撑宇航员在旅程中的任务。此外，还有一架飞机停在机库附近，进一步表明这是一次航空展。在飞机的周围，还有一些人，但他们看起来离飞机很近。可以看到一个人站在飞机附近，可能正在观察或等待航天飞机准备起飞。</td>
-      <td>场景中，一名士兵戴着头盔站在一架大型飞机上。这架飞机似乎是一架军用军用飞机，似乎正准备登上一架飞机。另一个人则站在前面，可能正在观察飞行过程。在飞机周围，有几个人，其中一些站在左侧，另一些则站在右侧。他们似乎正在观看飞行员的表现。此外，还有一辆卡车停在靠近左侧的位置，可能是为了更具体地观察飞行过程。</td>
+      <td>一个花瓶里有黄色的花,上面有紫色的叶子。</td>
     </tr>
     <tr>
       <td>
-        <img src="./dataset/eval_images/小狗美女海边-Dog-Woman-Sea.jpg" alt="dog-woman-sea">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="./eval_images/GCC_train_000000001.jpg">
       </td>
-      <td>图片中，一个女人坐在沙滩上，手里拿着一只白色的狗。她看起来像是个女人，坐在沙地上，看着她。一只狗也坐在她旁边，看起来很放松和舒适。海滩上散布着其他沙滩游客，有些人坐着，而另一些人则坐在更远的地方。背景中可以看到一艘船，这表明这是一个受欢迎的海滩旅游目的地。</td>
-      <td>两个人坐在海滩上，一边懒洋洋地躺在沙滩上，另一边则坐着。他们似乎正在享受海边时光。海滩上有几把椅子，其中一把靠近沙滩的左侧，另一把在中间。此外，还有一只狗躺在沙地上，为这个场景增添了一种放松的气氛。</td>
-    </tr>
-    <tr>
-      <td>
-        <img src="./dataset/eval_images/彩虹瀑布-Rainbow-Falls.jpg" alt="rainbow-falls">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      </td>
-      <td>照片捕捉到一幅美丽如画的大自然场景，背景是高山峦崖。在水边，一座巨大的喷泉横跨着水面，吸引着许多游客。水面上有几个人，他们或站或坐在喷泉周围，或站或坐。有些人可以看到他们在水中行走，而其他人则站在水边。总体而言，这幅画描绘的是一个美丽而宁静的环境，在那里人们可以欣赏到如画般的美景。</td>
-      <td>在一个美丽的蓝色天空下，一座巨大而巨大的白色瀑布上方悬挂着一只巨大的湿流水。这只瀑布位于一座山上，为整个场景增添了一种迷人而又宁静的气氛。在这幅图像的背景中，可以看到几艘船，其中一些靠近水边，其他的则离得较远。这些船只似乎正在为风景或户外活动做准备。</td>
-    </tr>
-    <tr>
-      <td>
-        <img src="./dataset/eval_images/椅子老人看书-Chair-Elderly-Reading.jpg" alt="elderly-reading">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      </td>
-      <td>图中，一个男人坐在公园的长椅上，旁边是一把绿色椅子。他身边有一本打开的书，上面写着"读书"一句话，暗示他可能正在阅读。公园里有一张长椅和一张公园长椅，为周围的环境增添了几分生气。在公园的周围，有几辆汽车和一辆卡车，表明这是一个公共区域。此外，还可以看到一个人站在公园的不同位置上，可能是等着上路或过马路。</td>
-      <td>一个穿着短裤的老人坐在公园长椅上，周围是树木。他似乎正在读一本书，可能是在读书。背景中有一座长凳，为这个场景提供了充足的座位。在背景中，可以看到一把椅子和一张餐桌，这说明这个场景可能是在一个户外座位区，那里有椅子供人们坐下来放松。</td>
-    </tr>
+      <td>女歌手在舞台上表演。</td>
+    </tr>      
   </tbody>
 </table>
