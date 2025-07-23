@@ -29,6 +29,7 @@ pip install transformers peft accelerate
 
 图像数据通过预训练的image_processor处理成pixel_values，形状为（batch_size,channels,height,width）
 ### 2.3. 模型搭建
+
 #### VLM类
 1. 在初始化方法中加载所需的各种部件，包括预训练的视觉编码器，改写的Qwen模型，分词器。并定义映射层、对映射层进行初始化、冻结模型部分参数。
 2. 定义映射层如下：
@@ -41,14 +42,18 @@ self.feature_proj = nn.Sequential(
 ```
 3. VLM的参数冻结情况：可以选择（1）全量微调映射层；（2）全量微调映射层+LoRA微调LLM
 4. 前向传播：将输入的数据统一转变成张量格式并移动到指定设备，提取图像特征并实现对齐，对齐的图像特征与其他数据如文本tokens，填充掩码等一起输入LLM，返回LLM的标准输出，从中提取loss，将相关数据封装在CausalLMOutputWithPast中并return
-#### LLM
-1.编写了MyQwenModel类，继承transformers中的Qwen2ForCausalLM，并添加了图像文本拼接，掩码构建、标签构建的方法，重写了forward方法
+
+#### LLM类
+1. 编写了MyQwenModel类，继承transformers中的Qwen2ForCausalLM，并添加了图像文本拼接，掩码构建、标签构建的方法，重写了forward方法
 2. 在forward方法中，首先将文本的token序列转换成向量序列，然后在合适位置插入196个对齐的图像特征向量，得到融合序列；由于序列长度变化，需调用类方法修改标签，并构建因果掩码，保证在训练中不会发生数据泄露，将因果掩码与填充掩码叠加得到完整的注意力掩码。将融合序列、完整的注意力掩码和修改后的标签输入父类的forward方法，利用父类已经编写好的forward流程完成模型的前向传播，并返回父类的标准返回对象，其中包含了loss，logits等信息。
-3.掩码构建：保证
-1. 编写一个VLM类，集成了视觉编码器、LLM、映射层，并包含了分词、图像文本拼接、标签构建、掩码构建等功能。
-2. 取视觉编码器最后一个隐藏状态作为图像特征，张量形状为（batch_size,num_patches,hidden_dim），经过映射层后得到对齐的图像特征aligned_image_features.
-3. 将文本进行分词得到input_ids，采取左填充方式，长度设置为32，之后与aligned_image_features一起输入LLM类的实例。
-4. 在LLM类中，首先将input_ids进行嵌入，得到嵌入向量text_embeds;将text_embeds与aligned_image_features进行拼接，同时要改变padding_mask的长度，并手动构建因果掩码casual_mask,保证prompt部分不能看到答案，答案部分只能看到当前输出之前的内容。将padding_mask与causal_mask进行叠加，得到最终的combined_mask;此外，在LLM中还要实现labels的手动构建，保证序列中除了assistant token至<|im_end|>这段序列之外，其余部分均设置为-100。
+3. 掩码构建：
+<img src="./掩码.png">
+4. 标签构建：在assistant到<|im_end|>范围内的token保留对应的训练数据的原始token id，其余地方均设为-100（assistant token也设置为-100，它不需要计算损失）
+
+#### VisualModel类
+
+继承SiglipVisionModel，调用父类的vision_model属性进行前向传播，只取输出结果中的最后一个隐藏层状态作为模型输出
+
 ### 2.4. 微调
 冻结视觉编码器，并对映射层进行全量微调，对LLM以LoRA方式进行参数高效微调。
 
