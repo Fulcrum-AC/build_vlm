@@ -70,21 +70,33 @@ train_args = TrainingArguments(
   <tbody>
     <tr>
       <td>
-        <img src="./eval_images/GCC_train_000000000.jpg" alt="city-traffic">
+        <img src="./eval_images/GCC_train_000000000.jpg">
       </td>
-      <td>在大雨和大风中,在城市街道上,有大量汽车和行人。</td>
+      <td>1.在大雨和大风中,在城市街道上,有大量汽车和行人。<br> 2.拥挤的交通在城市中心的街道上。</td>
     </tr>
     <tr>
       <td>
         <img src="./eval_images/train-00000-of-00001_image_43_0.jpg">
       </td>
-      <td>一个花瓶里有黄色的花,上面有紫色的叶子。</td>
+      <td>1.一个花瓶里有黄色的花,上面有紫色的叶子。<br> 2.花瓶和花束,有黄色和粉红色的花</td>
     </tr>
     <tr>
       <td>
         <img src="./eval_images/GCC_train_000000001.jpg">
       </td>
-      <td>女歌手在舞台上表演。</td>
-    </tr>      
+      <td>1.女歌手在舞台上表演。<br> 2.在我们参加的时装周的服装秀上,一个人穿着黑色的裙子和一件白色的衬衫。</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="./eval_images/GCC_train_000000023.jpg">
+      </td>
+      <td>1.一个大钱包,里面装满了钱,用一个大锁盖在白色背景上隔离。<br> 2.将金钱和现金放入保险箱,防止被盗或丢失。</td>
+    </tr>     
+    <tr>
+      <td>
+        <img src="./eval_images/GCC_train_000000025.jpg">
+      </td>
+      <td>1.当您在球场上打高尔夫球时,您会看到一个有趣的景观。。<br> 2.在高尔夫球场的右前方,有起伏的地形。</td>
+    </tr>  
   </tbody>
 </table>
