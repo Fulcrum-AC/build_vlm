@@ -55,8 +55,9 @@ self.feature_proj = nn.Sequential(
 继承SiglipVisionModel，调用父类的vision_model属性进行前向传播，只取输出结果中的最后一个隐藏层状态作为模型输出
 
 ### 2.4. 微调
-冻结视觉编码器，并对映射层进行全量微调，对LLM以LoRA方式进行参数高效微调。
-
+方案一：冻结视觉编码器，并对映射层进行全量微调，对LLM以LoRA方式进行参数高效微调。<br>
+方案二：冻结视觉编码器和LLM，仅全量微调映射层。<br>
+效果无明显差别。
 训练时的参数设置如下：
 ```python
 train_args = TrainingArguments(
@@ -97,7 +98,7 @@ train_args = TrainingArguments(
       <td>
         <img src="./eval_images/train-00000-of-00001_image_43_0.jpg">
       </td>
-      <td>1.一个花瓶里有黄色的花,上面有紫色的叶子。<br> 2.花瓶和花束,有黄色和粉红色的花</td>
+      <td>1.一个花瓶里有黄色的花,上面有紫色的叶子。<br> 2.花瓶和花束,有黄色和粉红色的花。</td>
     </tr>
     <tr>
       <td>
@@ -115,7 +116,7 @@ train_args = TrainingArguments(
       <td>
         <img src="./eval_images/GCC_train_000000025.jpg">
       </td>
-      <td>1.当您在球场上打高尔夫球时,您会看到一个有趣的景观。。<br> 2.在高尔夫球场的右前方,有起伏的地形。</td>
+      <td>1.当您在球场上打高尔夫球时,您会看到一个有趣的景观。<br> 2.在高尔夫球场的右前方,有起伏的地形。</td>
     </tr>  
   </tbody>
 </table>
